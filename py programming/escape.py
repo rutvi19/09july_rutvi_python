@@ -1,0 +1,6 @@
+print("\'hello world\'")
+print('\"hello world\"')
+print("hello \n python")
+print("hello \t python")
+print(" \\ hello python")
+print("helloworld\b")
