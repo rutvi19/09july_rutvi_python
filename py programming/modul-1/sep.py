@@ -1,2 +1,2 @@
 
-print("java","python","C","programing",sep="!")
+print("java","python","C","programing",sep="\n ")
