@@ -20,7 +20,8 @@ data.clear()  # clears the list
 data.pop(1)
 data.sort()
 data.reverse()
-data_copy = data.copy()     
+data.append
+copy = data.copy()     
 
 print(data)
 
