@@ -17,9 +17,9 @@ print("Table created successfully!")
 
 # ---- Insert Data ----
 cur.execute("INSERT INTO learners (name, age, course) VALUES (?, ?, ?)", 
-            ("Bhatt Ji", 21, "BCA"))
+            ("Rutvi", 20, "BCA"))
 cur.execute("INSERT INTO learners (name, age, course) VALUES (?, ?, ?)", 
-            ("Raj", 22, "MCA"))
+            ("Rutvi", 20, "MCA"))
 connection.commit()
 print("Data inserted successfully!")
 
