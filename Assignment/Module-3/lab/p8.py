@@ -13,7 +13,7 @@ class Learner:
 
 
 # Create an object of Learner class
-learner1 = Learner("Bhatt Ji", 23, "Computer Science")
+learner1 = Learner("Rutvi", 20, "Computer Science")
 
 # Access properties using the object
 print("Accessing Properties Directly:")
