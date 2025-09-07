@@ -2,7 +2,7 @@
 my_file = open("example.txt", "w")
 
 # String to write into the file
-message = "Hello Bhattji! This is a custom message."
+message = "Hello Rutvii! This is a custom message."
 
 # Write the string to the file
 my_file.write(message)
