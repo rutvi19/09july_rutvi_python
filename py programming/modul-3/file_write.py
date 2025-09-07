@@ -7,8 +7,8 @@
 # f.write("Replaced text")
 # f.close()
 
-with open("myfile.txt", "w") as f:
-    content = f.write()   # read entire file
+with open("myfile.txt", "r") as f:
+    content = f.read()   # read entire file
 
 # Print file content on the console
 print("File contents:\n")
