@@ -4,8 +4,8 @@ import random
 #print(x)
 
 captcha=['df4e','olp0','sedw','okm7','jmkg','fhfj','uji8','fgh6']
-#x=random.choice(captcha)
-#print(x)
+x=random.choice(captcha)
+print(x)
 
-random.shuffle(captcha)
-print(captcha)
+# random.shuffle(captcha)
+# print(captcha)

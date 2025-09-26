@@ -1,0 +1,16 @@
+SQL commands:
+1.DDL(data deffination language)
+    `create,alter,drop(bne delete kre),truncate(data delete kre)
+
+2.DML(data manuolation language)
+    `insert,update,delete
+
+3.DQL(data query language)
+    `select
+
+server side:
+4.DCL(data contorl language)
+    `grant(all permission given),revoke(don't give permission)
+
+5.TCL(Transction control language)
+    `commit,rollback,savepoint

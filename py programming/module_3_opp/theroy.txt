@@ -1,0 +1,16 @@
+-->oop 
+1)class is collection of data member and member function
+2)object 
+3)inheritance
+    -single
+    -multiple
+    -multilevel
+4)encapsulation/data binding refer to data binding we have multiple file and that file save to one files.
+5)polymorphism refer to 'many forms' one name and multiple forms
+    -method overloading 
+    -method overriding
+6)access specifire/modifire/data hiding 
+    -public (default)
+    -private    
+
+// class and object is the pillar of oop.
