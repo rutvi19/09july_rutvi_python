@@ -14,3 +14,10 @@ server side:
 
 5.TCL(Transction control language)
     `commit,rollback,savepoint
+
+
+
+    pk and u:
+    ek j columns and u multiple column ma lage
+    
+    update:
