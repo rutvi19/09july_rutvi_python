@@ -1,104 +1,113 @@
+import os
 import tkinter as tk
 from tkinter import messagebox
-import os
+
+# ================= Playlist Class =================
+class Playlist:
+    def __init__(self, name, songs):
+        self.name = name
+        self.songs = songs
+
+    def save_to_file(self):
+        # check validation
+        if self.name == "":
+            messagebox.showerror("Error", "Playlist name cannot be empty")
+            return
+        if len(self.songs) == 0:
+            messagebox.showerror("Error", "Playlist must have at least one song")
+            return
 
 
-if not os.path.exists("playlists"):
-    os.makedirs("playlists")
+        # create folder if not exists
+        if not os.path.exists("playlists"):
+            os.mkdir("playlists")
+
+        filename = "playlists/playlist_" + self.name + ".txt"
+
+        # avoid duplicate playlist
+        if os.path.exists(filename):
+            messagebox.showerror("Error", "Playlist already exists")
+            return
 
 
-def save_playlist():
-    playlist_name = entry_name.get().strip()
-    songs = text_songs.get("1.0", tk.END).strip().split("\n")
-
-    if not playlist_name:
-        messagebox.showwarning("Input Error", "Please enter a playlist name.")
-        return
-
-    if not songs or songs == [""]:
-        messagebox.showwarning("Input Error", "Please enter at least one song.")
-        return
-
-    filename = os.path.join("playlists", f"playlist_{playlist_name}.txt")
-    if os.path.exists(filename):
-        messagebox.showerror("Duplicate Error", f"Playlist '{playlist_name}' already exists!")
-        return
-
-    try:
-        f = open(filename, "w", encoding="utf-8")
-        f.write("\n".join(songs)) 
+        f = open(filename, "w")
+        for song in self.songs:
+            f.write(song + "\n")
         f.close()
 
-        messagebox.showinfo("Success", f"Playlist '{playlist_name}' saved!")
-        entry_name.delete(0, tk.END)
-        text_songs.delete("1.0", tk.END)
-        load_playlists()
 
-    except Exception as e:
-        messagebox.showerror("Error", f"Could not save playlist: {e}")
+# ================= GUI Application =================
+class MusicBoxApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("MusicBox")
+        self.root.geometry("500x400")
+
+        # playlist name entry
+        tk.Label(root, text="Playlist Name").pack()
+        self.txt_name = tk.Entry(root, width=40)
+        self.txt_name.pack()
+
+        # song input text
+        tk.Label(root, text="Enter Songs (one per line)").pack()
+        self.txt_songs = tk.Text(root, height=8, width=40)
+        self.txt_songs.pack()
+
+        # buttons
+        tk.Button(root, text="Save Playlist", command=self.save_playlist).pack(pady=5)
+        tk.Button(root, text="View Playlists", command=self.view_playlists).pack(pady=5)
+
+        # listbox
+        self.lst_playlists = tk.Listbox(root, width=40, height=8)
+        self.lst_playlists.pack()
+        self.lst_playlists.bind("<<ListboxSelect>>", self.show_songs)
+
+        # label for showing songs
+        self.lbl_songs = tk.Label(root, text="")
+        self.lbl_songs.place(x=50, y=200)
+
+    # save playlist
+    def save_playlist(self):
+        try:
+            name = self.txt_name.get()
+            songs = self.txt_songs.get("1.0", tk.END).split("\n")
+            songs = [s for s in songs if s.strip() != ""]
+
+            p = Playlist(name, songs)
+            p.save_to_file()
+            messagebox.showinfo("Success", "Playlist saved successfully")
+
+            self.txt_name.delete(0, tk.END)
+            self.txt_songs.delete("1.0", tk.END)
+
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
+
+    # view playlists
+    def view_playlists(self):
+        self.lst_playlists.delete(0, tk.END)
+        if os.path.exists("playlists"):
+            files = os.listdir("playlists")
+            for file in files:
+                if file.endswith(".txt"):
+                    self.lst_playlists.insert(tk.END, file)
+        else:
+            messagebox.showinfo("Info", "No playlists found")
+
+    # show songs inside playlist
+    def show_songs(self, event):
+        try:
+            selected = self.lst_playlists.get(self.lst_playlists.curselection())
+            path = os.path.join("playlists", selected)
+            f = open(path, "r")
+            data = f.read()
+            f.close()
+            self.lbl_songs.config(text=data)
+        except:
+            self.lbl_songs.config(text="Error loading playlist")
 
 
-def load_playlists():
-    listbox_playlists.delete(0, tk.END)
-    for file in os.listdir("playlists"):
-        if file.startswith("playlist_") and file.endswith(".txt"):
-            listbox_playlists.insert(tk.END, file)
-
-
-def show_playlist(event):
-    try:
-        selection = listbox_playlists.get(listbox_playlists.curselection())
-        filepath = os.path.join("playlists", selection)
-        
-        f = open(filepath, "r", encoding="utf-8")
-        songs = f.read()
-        f.close()
-
-        text_display.delete("1.0", tk.END)
-        text_display.insert(tk.END, songs)
-
-    except FileNotFoundError:
-        messagebox.showerror("Error", "Selected playlist file not found!")
-    except Exception as e:
-        messagebox.showerror("Error", f"Could not load playlist: {e}")
-
-
+# ================= Run Application =================
 root = tk.Tk()
-root.title("MusicBox - Playlist Manager")
-root.geometry("600x500")
-
-
-frame_left = tk.Frame(root)
-frame_left.pack(side=tk.LEFT, padx=10, pady=10, fill=tk.Y)
-
-tk.Label(frame_left, text="Create New Playlist", font=("Arial", 14, "bold")).pack(pady=5)
-
-tk.Label(frame_left, text="Playlist Name:").pack(anchor="w")
-entry_name = tk.Entry(frame_left, width=30)
-entry_name.pack(pady=5)
-
-tk.Label(frame_left, text="Enter Songs (one per line):").pack(anchor="w")
-text_songs = tk.Text(frame_left, height=10, width=30)
-text_songs.pack(pady=5)
-
-btn_save = tk.Button(frame_left, text="Save Playlist", command=save_playlist, bg="lightblue", font=("Arial", 12))
-btn_save.pack(pady=10)
-
-
-frame_right = tk.Frame(root)
-frame_right.pack(side=tk.RIGHT, padx=10, pady=10, fill=tk.BOTH, expand=True)
-
-tk.Label(frame_right, text="Existing Playlists", font=("Arial", 14, "bold")).pack(pady=5)
-
-listbox_playlists = tk.Listbox(frame_right, height=10, width=40)
-listbox_playlists.pack(pady=5, fill=tk.X)
-listbox_playlists.bind("<<ListboxSelect>>", show_playlist)
-
-tk.Label(frame_right, text="Songs in Playlist:").pack(anchor="w")
-text_display = tk.Text(frame_right, height=15, width=40, state="normal")
-text_display.pack(pady=5, fill=tk.BOTH, expand=True)
-
-
-load_playlists()
-
+app = MusicBoxApp(root)
 root.mainloop()
