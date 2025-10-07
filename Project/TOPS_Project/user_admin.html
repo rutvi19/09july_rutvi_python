@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Module 3: Manage User Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f3f5;
+            margin: 0;
+            padding: 0;
+        }
+
+       h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background-color: #007bff;
+            margin-bottom: 30px;
+        }
+
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+        button{
+            padding: 10px 20px;
+            border-radius: 5px;
+            color:#00d9ff;
+            cursor: pointer;
+            margin: 1 2px; 
+            background-color: #2f25be;
+            font-size: 15px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            align-items: center;   
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            width: 300px;
+            text-align: center;
+        }
+
+        #popup h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        #popup button {
+            margin-top: 10px;
+        }
+
+        .view { background-color: #28a745; }
+        .delete { background-color: #dc3545; }
+    </style>
+</head>
+<body>
+        <!-- User Details Table -->
+        <h2 style="text-align:center; color:#007bff;">User Details</h2>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Rutvi Mandaliya</td>
+                <td>rutvi@example.com</td>
+                <td>9876543210</td>
+                <td>
+                    <button class="btn view">View</button>
+                    <button class="btn Edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Priya Shah</td>
+                <td>priya@example.com</td>
+                <td>9823456789</td>
+                <td>
+                    <button class="btn view">View</button>
+                    <button class="btn Edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Chudasama priyanshi</td>
+                <td>priyanshi@example.com</td>
+                <td>9856321479</td>
+                <td>
+                    <button class="btn view">View</button>
+                    <button class="btn Edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Parekh hiral</td>
+                <td>hiral@example.com</td>
+                <td>98563214571</td>
+                <td>
+                    <button class="btn view">View</button>
+                    <button class="btn Edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Shrey Mandaliya</td>
+                <td>shery@example.com</td>
+                <td>98563214571</td>
+                <td>
+                    <button class="btn view">View</button>
+                    <button class="btn Edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </td>
+            </tr>
+        </table>
+
+        <a href="location_admin.html">
+  <button>Go to location Details</button>
+</a>
+<div id="popup">
+        <h3>user Information</h3>
+        <p id="popup-content"></p>
+        <button class="btn" style="background-color:#007bff;" onclick="closePopup()">Close</button>
+    </div>
+<script>
+// ===== VIEW Button =====
+document.querySelectorAll(".view").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const row = this.closest("tr");
+        const userId = row.cells[0].innerText;
+        const name = row.cells[1].innerText;
+        const email = row.cells[2].innerText;
+        const contact = row.cells[3].innerText;
+
+        alert(
+            `User Details:\n\n` +
+            `ID: ${userId}\n` +
+            `Name: ${name}\n` +
+            `Email: ${email}\n` +
+            `Contact: ${contact}`
+        );
+    });
+});
+
+// ===== EDIT Button =====
+document.querySelectorAll(".Edit").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const row = this.closest("tr");
+
+        const newName = prompt("Enter new name:", row.cells[1].innerText);
+        const newEmail = prompt("Enter new email:", row.cells[2].innerText);
+        const newContact = prompt("Enter new contact number:", row.cells[3].innerText);
+
+        if (newName && newEmail && newContact) {
+            row.cells[1].innerText = newName;
+            row.cells[2].innerText = newEmail;
+            row.cells[3].innerText = newContact;
+            alert("User details updated successfully!");
+        } else {
+            alert("Edit cancelled or incomplete!");
+        }
+    });
+});
+
+// ===== DELETE Button =====
+document.querySelectorAll(".delete").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const row = this.closest("tr");
+        const name = row.cells[1].innerText;
+        if (confirm(`Are you sure you want to delete user "${name}"?`)) {
+            row.remove();
+            alert("User deleted successfully!");
+        }
+    });
+});
+</script>
+
+
+
+
+<!--book Appointment-->
+        <h2 style="text-align:center; color:#007bff;">Book Appointment</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Details</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Consultation Appointment</td>
+                <td>For discussing reports, symptoms</td>
+                <td>19/2</td>
+                <td>8to9</td>
+                <td>
+                    <button class="btn view">View</button>
+                    <button class="btn edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Emergency Appointment</td>
+                <td>For urgent or sudden health issues</td>
+                <td>10/2</td>
+                <td>9to10</td>
+                <td>
+                    <button class="btn view">View</button>
+                    <button class="btn edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </td>
+            </tr>
+        </table>    
+<button id="bookAppointmentBtn" 
+        style="margin-top: 15px; 
+               background-color: #007bff; 
+               color: white; 
+               padding: 10px 15px; 
+               border: none; 
+               border-radius: 5px; 
+               cursor: pointer; 
+               font-weight: bold;">
+  Book New Appointment
+</button>
+<script>
+document.getElementById("bookAppointmentBtn").addEventListener("click", function() {
+  const table = document.querySelector("table:nth-of-type(2)"); // selects appointment table
+  const newId = table.rows.length; // auto increment ID
+
+  const title = prompt("Enter Appointment Title:");
+  const details = prompt("Enter Appointment Details:");
+  const date = prompt("Enter Appointment Date (e.g. 20/10):");
+  const time = prompt("Enter Appointment Time (e.g. 9to10):");
+
+  if (title && details && date && time) {
+    const row = table.insertRow();
+
+    row.innerHTML = `
+      <td>${newId}</td>
+      <td>${title}</td>
+      <td>${details}</td>
+      <td>${date}</td>
+      <td>${time}</td>
+      <td>
+        <button class="btn view" style="background-color: green; color: white;">View</button>
+        <button class="btn edit" style="background-color: blue; color: white;">Edit</button>
+        <button class="btn delete" style="background-color: red; color: white;">Delete</button>
+      </td>
+    `;
+
+    attachAppointmentActions();
+    alert(" Appointment booked successfully!");
+  } else {
+    alert(" Appointment creation cancelled or incomplete!");
+  }
+});
+
+function attachAppointmentActions() {
+  document.querySelectorAll(".view").forEach(btn => {
+    btn.onclick = function() {
+      const row = this.closest("tr");
+      alert(`Appointment Details:\n\nID: ${row.cells[0].innerText}\nTitle: ${row.cells[1].innerText}\nDetails: ${row.cells[2].innerText}\nDate: ${row.cells[3].innerText}\nTime: ${row.cells[4].innerText}`);
+    };
+  });
+
+  document.querySelectorAll(".edit").forEach(btn => {
+    btn.onclick = function() {
+      const row = this.closest("tr");
+      const newTitle = prompt("Enter new title:", row.cells[1].innerText);
+      const newDetails = prompt("Enter new details:", row.cells[2].innerText);
+      const newDate = prompt("Enter new date:", row.cells[3].innerText);
+      const newTime = prompt("Enter new time:", row.cells[4].innerText);
+
+      if (newTitle && newDetails && newDate && newTime) {
+        row.cells[1].innerText = newTitle;
+        row.cells[2].innerText = newDetails;
+        row.cells[3].innerText = newDate;
+        row.cells[4].innerText = newTime;
+        alert(" Appointment updated successfully!");
+      } else {
+        alert(" Edit cancelled or incomplete!");
+      }
+    };
+  });
+
+  document.querySelectorAll(".delete").forEach(btn => {
+    btn.onclick = function() {
+      const row = this.closest("tr");
+      const title = row.cells[1].innerText;
+      if (confirm(`Are you sure you want to delete "${title}"?`)) {
+        row.remove();
+        alert(" Appointment deleted successfully!");
+      }
+    };
+  });
+}
+
+// initialize existing rows
+attachAppointmentActions();
+</script>
+
+        <div id="popup">
+        <h3>Book Appointment</h3>
+        <p id="popup-content"></p>
+        <button class="btn" style="background-color:#007bff;" onclick="closePopup()">Close</button>
+    </div>
+<script>
+// ===== VIEW Button =====
+document.querySelectorAll(".view").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const row = this.closest("tr");
+        const id = row.cells[0].innerText;
+        const title = row.cells[1].innerText;
+        const details = row.cells[2].innerText;
+        const date = row.cells[3].innerText;
+        const time = row.cells[4].innerText;
+
+        alert(
+            `Appointment Details:\n\n` +
+            `ID: ${id}\n` +
+            `Title: ${title}\n` +
+            `Details: ${details}\n` +
+            `Date: ${date}\n` +
+            `Time: ${time}`
+        );
+    });
+});
+
+// ===== EDIT Button =====
+document.querySelectorAll(".edit").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const row = this.closest("tr");
+
+        const newTitle = prompt("Enter new Title:", row.cells[1].innerText);
+        const newDetails = prompt("Enter new Details:", row.cells[2].innerText);
+        const newDate = prompt("Enter new Date (DD/MM):", row.cells[3].innerText);
+        const newTime = prompt("Enter new Time (e.g., 9to10):", row.cells[4].innerText);
+
+        if (newTitle && newDetails && newDate && newTime) {
+            row.cells[1].innerText = newTitle;
+            row.cells[2].innerText = newDetails;
+            row.cells[3].innerText = newDate;
+            row.cells[4].innerText = newTime;
+            alert("Appointment updated successfully!");
+        } else {
+            alert("Edit cancelled or incomplete!");
+        }
+    });
+});
+
+// ===== DELETE Button =====
+document.querySelectorAll(".delete").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const row = this.closest("tr");
+        const title = row.cells[1].innerText;
+
+        if (confirm(`Are you sure you want to delete appointment "${title}"?`)) {
+            row.remove();
+            alert("Appointment deleted successfully!");
+        }
+    });
+});
+</script>
+</body>
+</html>

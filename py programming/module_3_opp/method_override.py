@@ -20,7 +20,6 @@ ind.header("H","A","C")
 
 pro=profile()
 pro.header("H","A","C")
-
 # same method and also same number of arguments but different class
 
 # super() function is used to give access to the methods of a parent class from a child class.

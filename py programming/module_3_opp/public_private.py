@@ -26,3 +26,4 @@ class studinfo:
 
 st=studinfo()
 st.getdata()
+# print("id:",st.__stid) it will give error
