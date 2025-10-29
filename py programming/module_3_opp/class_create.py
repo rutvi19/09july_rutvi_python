@@ -3,7 +3,7 @@ class studinfo:
     stnm="rutvi"
 
     def myfunc(self):
-         print("this is my function")
+        print("this is my function")
 
 #object of class
 st=studinfo()                 
