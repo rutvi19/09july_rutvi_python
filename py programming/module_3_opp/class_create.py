@@ -1,16 +1,29 @@
-class studinfo:
+# class studinfo:
+#     stid=12
+#     stnm="rutvi"
+
+#     def myfunc(self):
+#         print("this is my function")
+
+# #object of class
+# st=studinfo()                 
+# """<-attribute reference"""
+
+# print(st.stid)
+# print(st.stnm)         
+# """<-instatiatiion"""
+
+# st.myfunc()
+
+class info:
     stid=12
-    stnm="rutvi"
+    stnm="john"
 
-    def myfunc(self):
-        print("this is my function")
+    def fun(self):
+        print("this is function")
 
-#object of class
-st=studinfo()                 
-"""<-attribute reference"""
+i=info()
+print(i.stid)
+print(i.stnm)        
 
-print(st.stid)
-print(st.stnm)         
-"""<-instatiatiion"""
-
-st.myfunc()
+i.fun()
