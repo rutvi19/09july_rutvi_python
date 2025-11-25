@@ -1,0 +1,67 @@
+/* ---- Global Page Styles ---- */
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2f3;
+    padding: 40px;
+    margin: 0;
+}
+
+/* ---- Center Container Box ---- */
+.container, .form-box {
+    background: #ffffff;
+    padding: 30px;
+    width: 380px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* ---- Headings ---- */
+h2 {
+    margin-bottom: 20px;
+    color: #2d3436;
+    text-align: center;
+}
+
+/* ---- Input Fields ---- */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #b2bec3;
+    font-size: 15px;
+}
+
+/* ---- Buttons ---- */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #0984e3;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0768b0;
+}
+
+/* ---- Links ---- */
+a {
+    text-decoration: none;
+    color: #0984e3;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---- Paragraphs ---- */
+p {
+    text-align: center;
+    color: #636e72;
+}

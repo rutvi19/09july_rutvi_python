@@ -2,7 +2,7 @@ SQL commands:
 1.DDL(data deffination language)
     `create,alter,drop(bne delete kre),truncate(data delete kre)
 
-2.DML(data manuolation language)
+2.DML(data manuplation language)
     `insert,update,delete
 
 3.DQL(data query language)

@@ -4,7 +4,7 @@
 #     def __init__(self):#constructor
 #        print("this is init method")
 
-#     def getdata(self):
+#     def getdata(self):u
 #         print("this is getdata method")
 # st=studinfo()
 # st.getdata()

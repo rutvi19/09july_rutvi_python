@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Finder</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<h1 class="heading">Available Doctors</h1>
+
+<div class="container">
+    {% for doctor in doctors %}
+    <div class="card">
+        <img src="/img/1.jpg" alt="Doctor">
+        <h2>{{ doctor.name }}</h2>
+        <p><strong>{{ doctor.specialization }}</strong></p>
+        <p>Experience: {{ doctor.experience }} years</p>
+        <p>{{ doctor.bio }}</p>
+    </div>
+    {% endfor %}
+</div>
+<a href="/add_doctor" class="btn">Add Doctor</a>
+<a href="/register" class="btn">Register as a Patient</a>
+
+</body>
+</html>

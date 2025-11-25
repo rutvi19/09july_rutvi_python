@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTP verificaion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <!-- OTP Card -->
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+    <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">OTP</h2>
+    <h4 class="text-small font-bold text-center text-blue-600 mb-6">{{msg}}</h4>
+
+    <form method="POST">
+      {% csrf_token %} 
+
+      <!--Email-->
+      <label class="block mb-3">
+        <span class="text-gray-700 font-medium">OTP</span>
+        <input type="number" name="otp" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Enter your OTP" required />
+      </label>
+
+      <!-- OTP Submit Button -->
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">Verify</button>
+      </form>
+    </div>
+    
+    <!-- Password Show/Hide Script -->
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = password.type === 'password' ? 'text' : 'password';
+            password.type = type;
+        });
+    </script>
+    </body>
+</html>

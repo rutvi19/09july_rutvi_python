@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>show data</title>
+
+    </head>
+    <body>
+        <h1>Data from Database</h1>
+        <table border="1">
+            <tr>
+                <td>First Name</td> 
+                <td>Last Name</td>
+                <td>Username</td>
+                <td>City</td>
+                <td>State</td>
+                <td>mobile</td>
+            </tr>
+            {% for data in datas %}
+            <tr>
+                <td>{{ data.Firstname }}</td>
+                <td>{{ data.Lastname }}</td>
+                <td>{{ data.Username }}</td>
+                <td>{{ data.City }}</td>
+                <td>{{ data.State }}</td>
+                <td>{{ data.mobile }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

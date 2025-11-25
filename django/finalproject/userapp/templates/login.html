@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <!-- Login Card -->
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+    <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Login</h2>
+
+    <form method="POST">
+      {% csrf_token %} 
+
+      <!--Email-->
+      <label class="block mb-3">
+        <span class="text-gray-700 font-medium">Email</span>
+        <input type="email" name="email" 
+                 class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                 placeholder="Enter your email" required />
+      </label>
+      <!--Password-->
+      <label class="block mb-4">
+        <span class="text-gray-700 font-medium">Password</span>
+        <input type="password" name="password" 
+                class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" 
+                placeholder="Enter your password" required />
+      </label>
+
+      <!-- Login Button -->
+      <button type="submit" 
+            class="w-full bg-blue-600 text-white py-2 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">Login</button>
+      </form>
+
+        <!-- Signup Link -->
+        <p class="text-center text-gray-600 mt-4">
+            Don't have an account?
+            <a href="/signup" class="text-blue-600 font-semibold hover:underline">Create Account</a>
+        </p>
+
+    </div>
+    
+    <!-- Password Show/Hide Script -->
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = password.type === 'password' ? 'text' : 'password';
+            password.type = type;
+        });
+    </script>
+</body>
+</html>
