@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django MVT Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: #2980b9;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Welcome to Django MVT</h1>
+
+    <p>
+        Hello <span class="highlight">{{ username }}</span> 👋
+    </p>
+
+    <p>
+        Today’s date is:
+        <span class="highlight">{{ today }}</span>
+    </p>
+
+    <hr>
+
+    <p>
+        <strong>MVT Architecture:</strong>
+    </p>
+
+    <ul>
+        <li><strong>Model:</strong> Handles database & data logic</li>
+        <li><strong>View:</strong> Processes request and sends data</li>
+        <li><strong>Template:</strong> Displays data (this page)</li>
+    </ul>
+
+    <p>
+        This page is a <strong>Template</strong> that receives data from the
+        <strong>View</strong> and displays it dynamically.
+    </p>
+</div>
+
+</body>
+</html>

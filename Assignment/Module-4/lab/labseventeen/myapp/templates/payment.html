@@ -1,0 +1,6 @@
+<form method="post" action="https://securegw-stage.paytm.in/order/process">
+    {% for key, value in param_dict.items %}
+        <input type="hidden" name="{{ key }}" value="{{ value }}">
+    {% endfor %}
+    <button type="submit">Pay Now</button>
+</form>

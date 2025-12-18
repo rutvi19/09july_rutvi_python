@@ -1,0 +1,91 @@
+ {% extends "base.html" %}
+    {% load static %}
+{% block title %}Home{% endblock %}
+
+  {% block content %}
+
+    <!-- HERO SECTION -->
+    <section class="text-center py-20 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+        <h2 class="text-4xl font-bold mb-4">Welcome to Our Website</h2>
+        <p class="text-lg mb-6">Simple TailwindCSS Home Page</p>
+        <button class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow hover:bg-gray-100">Get Started</button>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="max-w-6xl mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h3 class="text-xl font-bold mb-2">Feature 1</h3>
+            <p class="text-gray-600">Short description about feature 1.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h3 class="text-xl font-bold mb-2">Feature 2</h3>
+            <p class="text-gray-600">Short description about feature 2.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h3 class="text-xl font-bold mb-2">Feature 3</h3>
+            <p class="text-gray-600">Short description about feature 3.</p>
+        </div>
+    </section>
+
+
+    <!-- Product cards (paste inside your CONTENT SECTION) -->
+     <!-- all product start-->
+<section class="max-w-6xl mx-auto py-16 px-6">
+  <h2 class="text-2xl font-semibold mb-6">Featured Products</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Card 1 -->
+     {% for i in products %}
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-200">
+      <div class="relative">
+
+        {% if i.image %}
+        <img src="{{ i.image.url }}" alt="{{ i.name }}" class="w-full h-56 object-cover">
+        {% else %}
+         <div class="w-full h-56 bg-gray-200 flex items-center justify-center">No Image</div>
+        {% endif %}
+
+        <div class="absolute top-3 left-3 bg-white/80 text-sm px-2 py-1 rounded-full font-medium">New</div>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-semibold mb-2">{{ i.name }}</h3>
+        <p class="text-gray-600 text-sm mb-4">{{ i.description }}...</p>
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-xl font-bold">${{ i.price }}</div>
+            <div class="text-sm text-gray-500">Incl. taxes</div>
+          </div>
+          <div class="flex items-center gap-1">
+            <!-- simple star rating -->
+            <div class="flex items-center text-yellow-500">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.95a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.95c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.988 2.614c-.784.57-1.84-.197-1.54-1.118l1.287-3.95a1 1 0 00-.364-1.118L2.025 9.377c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.95z"/></svg>
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.95a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.95c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.988 2.614c-.784.57-1.84-.197-1.54-1.118l1.287-3.95a1 1 0 00-.364-1.118L2.025 9.377c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.95z"/></svg>
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.95a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.95c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.988 2.614c-.784.57-1.84-.197-1.54-1.118l1.287-3.95a1 1 0 00-.364-1.118L2.025 9.377c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.95z"/></svg>
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.95a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.95c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.988 2.614c-.784.57-1.84-.197-1.54-1.118l1.287-3.95a1 1 0 00-.364-1.118L2.025 9.377c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.95z"/></svg>
+              <svg class="w-4 h-4 text-gray-300" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.95a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.95c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.988 2.614c-.784.57-1.84-.197-1.54-1.118l1.287-3.95a1 1 0 00-.364-1.118L2.025 9.377c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.95z"/></svg>
+            </div>
+            <div class="text-sm text-gray-500 ml-2">4.0</div>
+          </div>
+        </div>
+
+          <div class="mt-4 flex gap-3">
+          <!-- CHANGED: Add to Cart Link -->
+            <a href="{% url 'add_to_cart' i.id %}" class="flex-1 text-center px-4 py-2 border border-gray-200 rounded-lg hover:shadow-sm hover:bg-gray-50 transition cursor-pointer">
+              Add to cart
+            </a>
+          <a href="{% url 'proced' %}" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">Buy now</a>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+  </div>
+</section>
+    <!-- all product end-->
+
+    <!-- FOOTER -->
+    <footer class="bg-white text-center py-4 shadow-inner">
+        <p class="text-gray-700">© 2025 MyWebsite. All rights reserved.</p>
+    </footer>
+{% endblock %}
+</body>
+</html>

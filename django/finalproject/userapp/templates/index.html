@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Attractive Tailwind Index</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
   <!-- Navbar -->
   <nav class="bg-white shadow-md fixed w-full z-10">
@@ -13,13 +15,13 @@
       <h1 class="text-2xl font-bold text-blue-600">ADVENTURE</h1>
       <ul class="hidden md:flex space-x-6 text-lg font-medium">
         <li><a href="#" class="hover:text-blue-600">Home</a></li>
-        <li><a href="#" class="hover:text-blue-600">Profile</a></li>
+        <li><a href="/profile" class="hover:text-blue-600">Profile</a></li>
         <li><a href="#" class="hover:text-blue-600">Notes</a></li>
         <li><a href="#" class="hover:text-blue-600">About</a></li>
         <li><a href="#" class="hover:text-blue-600">Contact</a></li>
       </ul>
 
-       <!-- Login Signup -->
+      <!-- Login Signup -->
       <div class="hidden md:flex space-x-3">
 
         {% if user is none %}
@@ -31,35 +33,36 @@
 
         <!-- User Dropdown -->
         <div class="relative inline-block text-left">
-        <button id="userDropdownBtn" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition flex items-center">
-          {{ user }} ▼
-        </button>
+          <button id="userDropdownBtn"
+            class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition flex items-center">
+            {{ user }} ▼
+          </button>
 
-        <div id="userDropdownMenu" class="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg hidden flex-col">
-        <a href="#" class="px-4 py-2 hover:bg-gray-100">Update Profile</a>
-        <a href="/" class="px-4 py-2 hover:bg-gray-100">Logout</a>
-  </div>
-</div>
+          <div id="userDropdownMenu" class="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg hidden flex-col">
+            <a href="#" class="px-4 py-2 hover:bg-gray-100">Update Profile</a>
+            <a href="/userlogout" class="px-4 py-2 hover:bg-gray-100">Logout</a>
+          </div>
+        </div>
         {% endif %}
       </div>
 
       <script>
-  const dropdownBtn = document.getElementById('userDropdownBtn');
-  const dropdownMenu = document.getElementById('userDropdownMenu');
+        const dropdownBtn = document.getElementById('userDropdownBtn');
+        const dropdownMenu = document.getElementById('userDropdownMenu');
 
-  dropdownBtn.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('hidden');
-  });
+        dropdownBtn.addEventListener('click', () => {
+          dropdownMenu.classList.toggle('hidden');
+        });
 
-  // Close dropdown when clicking outside
-  window.addEventListener('click', function(e) {
-    if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-      dropdownMenu.classList.add('hidden');
-    }
-  });
-</script>
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function (e) {
+          if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+          }
+        });
+      </script>
 
-          <!-- Mobile Menu Button -->
+      <!-- Mobile Menu Button -->
       <button id="menu-btn" class="md:hidden focus:outline-none">
         <span class="text-3xl">&#9776;</span>
       </button>
@@ -80,11 +83,12 @@
       </div>
     </div>
 
-      <button class="md:hidden block" onclick="toggleMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-      </button>
+    <button class="md:hidden block" onclick="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-7 h-7">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
     </div>
   </nav>
 
@@ -141,4 +145,5 @@
     }
   </script>
 </body>
+
 </html>

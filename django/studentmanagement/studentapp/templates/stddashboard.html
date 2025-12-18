@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold">Student Dashboard</h1>
+
+        <div class="space-x-6">
+            <a href="/" class="hover:text-gray-300">Home</a>
+            <a href="#" class="hover:text-gray-300">Profile</a>
+            <a href="/login" class="hover:text-gray-300">Login</a>
+            <a href="/userlogout" class="hover:text-gray-300">Logout</a>
+            
+        </div>
+    </nav>
+
+    <div class="flex">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow h-screen p-6">
+            <h2 class="text-lg font-bold mb-4">Menu</h2>
+            <ul class="space-y-4">
+                <li><a href="#" class="text-gray-600 hover:text-black">📚 Courses</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-black">📝 Assignments</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-black">📊 Results</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-black">💬 Messages</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-black">⚙ Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+             {% else %}   
+            <!-- Welcome Section -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold">Welcome, {{ std }}👋</h2>
+                <p class="text-gray-600 mt-1">Here is your overview and important updates.</p>
+            </div>
+
+            <!-- Cards Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Card 1 -->
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <h3 class="text-lg font-bold mb-2">📚 Total Courses</h3>
+                    <p class="text-3xl font-semibold text-blue-600">5</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <h3 class="text-lg font-bold mb-2">📝 Pending Assignments</h3>
+                    <p class="text-3xl font-semibold text-red-500">3</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <h3 class="text-lg font-bold mb-2">📊 Latest Result</h3>
+                    <p class="text-3xl font-semibold text-green-600">88%</p>
+                </div>
+
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="mt-10">
+                <h3 class="text-xl font-bold mb-4">Recent Activity</h3>
+
+                <div class="bg-white p-6 shadow rounded-lg space-y-4">
+
+                    <div class="border-b pb-4">
+                        <p class="font-semibold text-gray-800">Assignment Submitted</p>
+                        <p class="text-gray-500 text-sm">You submitted the Web Development Assignment.</p>
+                    </div>
+
+                    <div class="border-b pb-4">
+                        <p class="font-semibold text-gray-800">New Course Added</p>
+                        <p class="text-gray-500 text-sm">Data Science course is now available.</p>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800">Result Updated</p>
+                        <p class="text-gray-500 text-sm">Your Database Management marks have been updated.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
