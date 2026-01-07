@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+<!-- ================== MAIN LAYOUT ================== -->
+<div class="flex flex-1">
+
+    <!-- ===== SIDEBAR (hidden on small screens) ===== -->
+    <aside class="hidden md:block w-64 bg-white shadow-md min-h-screen">
+        <div class="p-6 font-bold text-xl border-b">
+            Student Dashboard
+        </div>
+        <ul class="p-4 space-y-3 text-gray-700">
+            <li><a href="/stddashboard/" class="block px-4 py-2 rounded hover:bg-gray-200">Home</a></li>
+            <li><a href="/course/" class="block px-4 py-2 rounded hover:bg-gray-200">Courses</a></li>
+            <li><a href="/notes/" class="block px-4 py-2 rounded hover:bg-gray-200">Notes</a></li>
+            <li><a href="/contact/" class="block px-4 py-2 rounded hover:bg-gray-200">Contact Us</a></li>
+            <li><a href="/about/" class="block px-4 py-2 rounded bg-gray-200 font-semibold">About Us</a></li>
+        </ul>
+    </aside>
+
+    <!-- ================= CONTENT ================= -->
+    <div class="flex-1 flex flex-col">
+
+        <!-- NAVBAR -->
+        <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
+            <h1 class="text-lg font-semibold">About Us</h1>
+            <div class="space-x-4">
+                <a href="/profile/" class="hover:underline">Profile</a>
+                <a href="/userlogout/" class="hover:underline">Logout</a>
+            </div>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main class="p-8 flex-1 max-w-7xl mx-auto w-full">
+
+            <!-- Intro -->
+            <div class="bg-white p-6 rounded-lg shadow mb-6">
+                <h2 class="text-2xl font-bold mb-3">Who We Are</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Our Student Management System helps students manage courses, notes,
+                    and academic progress in one place. We focus on simplicity,
+                    speed, and a smooth user experience.
+                </p>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">🎯 Our Mission</h3>
+                    <p class="text-gray-700">
+                        To empower students by providing a platform that simplifies
+                        learning, tracking progress, and staying organized.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">🚀 Our Vision</h3>
+                    <p class="text-gray-700">
+                        To become a reliable and student-friendly academic companion
+                        for learners at every stage of education.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-xl font-semibold mb-4">✨ Key Features</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Course management</li>
+                    <li>Personal notes saving</li>
+                    <li>Student dashboard overview</li>
+                    <li>Secure login & profile</li>
+                    <li>Clean and responsive design</li>
+                </ul>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-black text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+
+        <div>
+            <h3 class="text-xl font-semibold mb-3">MyCollege</h3>
+            <p class="text-gray-300">
+                A place to learn, grow, and build your digital skills.
+            </p>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-semibold mb-3">Quick Links</h3>
+            <ul class="space-y-2 text-gray-300">
+                <li>Home</li>
+                <li>Profile</li>
+                <li>Notes</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-semibold mb-3">Contact Info</h3>
+            <p>Email: rutvimandaliya19@gmail.com</p>
+            <p>Phone: +91 9429190565</p>
+        </div>
+
+    </div>
+
+    <p class="text-center text-gray-400 mt-8">
+        © 2026 MYCOLLEGE. All rights reserved.
+    </p>
+</footer>
+
+</body>
+</html>

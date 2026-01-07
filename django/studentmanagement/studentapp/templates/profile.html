@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 text-white">
+        <h1 class="text-xl font-bold">My Profile</h1>
+    </nav>
+
+    <!-- Form Container -->
+    <div class="max-w-lg mx-auto mt-10 bg-white shadow-lg p-8 rounded-lg">
+
+        <h2 class="text-center text-2xl font-bold mb-6">Update Profile</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- Full Name -->
+            <label class="font-medium">Full Name</label>
+            <input type="text" name="fullname"
+                   value="{{ user.fullname }}"
+                   class="w-full p-2 border rounded mb-4">
+
+            <!-- Email (Readonly) -->
+            <label class="font-medium">Email</label>
+            <input type="email" name="email"
+                   value="{{ user.email }}"
+                   class="w-full p-2 border rounded mb-4 bg-gray-100">
+
+            <!-- Mobile Number -->
+            <label class="font-medium">Mobile Number</label>
+            <input type="text" name="mobile"
+                   value="{{ user.mobile }}"
+                   class="w-full p-2 border rounded mb-4">
+
+            <!-- Password (Optional) -->
+            <label class="font-medium">New Password</label>
+            <input type="password" name="password"
+                   placeholder="Leave blank to keep old password"
+                   class="w-full p-2 border rounded mb-4">
+
+            <!-- Role -->
+            <label class="font-medium">Role</label>
+            <select name="role"
+                    class="w-full p-2 border rounded mb-6">
+                <option value="Student" {% if user.role == 'Student' %}selected{% endif %}>Student</option>
+                <option value="Faculty" {% if user.role == 'Faculty' %}selected{% endif %}>Faculty</option>
+                <option value="Branch" {% if user.role == 'Branch' %}selected{% endif %}>Branch</option>
+            </select>
+
+            <!-- Submit button -->
+            <button type="submit"
+                    class="w-full bg-black text-white py-2 rounded hover:bg-black">
+                Update Profile
+            </button>
+
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,62 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100">
 
     <!-- Navbar -->
-    <nav class="bg-blue-600 text-white px-6 py-4 flex justify-between items-center shadow-lg">
+    <nav class="bg-black text-white px-6 py-4 flex justify-between items-center shadow-lg">
         <div class="text-xl font-semibold">My College</div>
 
         <div class="space-x-6">
-            <a href="/login" class="hover:text-gray-200 text-lg">Student Login</a>
-            <a href="/register" class="hover:text-gray-200 text-lg">Student Register</a>
-            <a href="#" class="hover:text-gray-200 text-lg">Faculty</a>
+            <!-- <a href="/login" class="hover:text-gray-200 text-lg">Student Login</a>
+            <a href="/register" class="hover:text-gray-200 text-lg">Student Register</a> -->
+            <a href="/login" class="hover:text-gray-200 text-lg">Student</a>
+            <a href="/facultyapp/fa_login/" class="hover:text-gray-200 text-lg">Faculty</a>
             <a href="#" class="hover:text-gray-200 text-lg">Branch</a>
-            <a href="/userlogout" class="hover:text-gray-200 text-lg">Logout</a>
+            <!-- <a href="/userlogout" class="hover:text-gray-200 text-lg">Logout</a> -->
         </div>
     </nav>
-
     <!-- Welcome Section -->
     <div class="flex justify-center items-center h-[80vh]">
         <h1 class="text-4xl font-bold text-gray-800">
             Welcome to the Dashboard 👋
         </h1>
     </div>
+    <footer class="bg-black text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+
+        <div>
+            <h3 class="text-xl font-semibold mb-3">MyCollege</h3>
+            <p class="text-gray-300">A place to learn, grow and build your digital skills.</p>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-semibold mb-3">Quick Links</h3>
+            <ul class="space-y-2 text-gray-300">
+                <li>Home</li>
+                <li>Profile</li>
+                <li>Notes</li>
+                <li>About</li>
+                <li>Contact</li>
+                
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-semibold mb-3">Contact Info</h3>
+            <p>Email: rutvimandaliya19@gmail.com</p>
+            <p>Phone: +91 9429190565</p>
+        </div>
+
+    </div>
+
+    <p class="text-center text-gray-400 mt-8">
+        © 2026 MYCOLLEGE. All rights reserved.
+    </p>
+</footer>
+
 
 </body>
+
 </html>
